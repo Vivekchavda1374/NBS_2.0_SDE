@@ -5,7 +5,7 @@ public class VedicSqrtDeviation {
         int A = (int) Math.floor(Math.sqrt(n));
         int B = n - (A * A);
         if (A == 0)
-            return 0.0; // Avoid division by zero
+            return 0.0;
         return A + ((double) B) / (2 * A);
     }
     public static double deviationPercent(double approx, double actual) {
@@ -22,7 +22,8 @@ public class VedicSqrtDeviation {
             double approxSqrt = vedicSqrtApprox(n);
             double deviation = deviationPercent(approxSqrt, actualSqrt);
 
-            if (deviation > 2.0) {
+
+            if (deviation > 5.0) {
                 System.out.println(n + " " + df.format(actualSqrt) + " " + df.format(approxSqrt) + " " + df.format(deviation));
                 ++count;
             }
