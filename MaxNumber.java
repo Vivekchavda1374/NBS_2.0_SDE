@@ -11,7 +11,6 @@ public class MaxNumber {
         // Initialize list
         List<Integer> list = new ArrayList<>();
 
-        // Read n integers and add to the list
         for (int i = 0; i < n; i++) {
             list.add(sc.nextInt());
         }
