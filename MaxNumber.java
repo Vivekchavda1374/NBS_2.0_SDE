@@ -6,7 +6,6 @@ public class MaxNumber {
     public static List<Integer> inputList() {
         Scanner sc = new Scanner(System.in);
 
-        // Read size of the list
         int n = sc.nextInt();
 
         // Initialize list
