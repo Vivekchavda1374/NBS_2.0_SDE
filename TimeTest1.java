@@ -15,11 +15,22 @@ public class TimeTest1 {
         System.out.println("Average Elapsed Time (nanoseconds): " + averageTime);
     }
 
-    public static int[] myCall(int n) {
-        int[] out = new int[n+1];
-        for(int i = 1 ; i<out.length;i++){
-            out[i]=out[i>>1]+i%2;
+    public static int myCall(int n) {
+        int minDev = Integer.MAX_VALUE;
+        int bestX = 0, bestY = 0;
+        for (int x = 1; x <= 100; x++) {
+            long pow2 = 1L << x;
+            for (int y = 1; y <= 38; y++) {
+                long pow10 = (long) Math.pow(10, y);
+                long dev = Math.abs(pow2 - pow10);
+                if (dev < minDev) {
+                    minDev = (int) dev;
+                    bestX = x;
+                    bestY = y;
+                }
+            }
         }
-        return out;
+        System.out.println("Minimum dev at x = " + bestX + ", y = " + bestY);
+        return bestX;
     }
 }
