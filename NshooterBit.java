@@ -11,5 +11,6 @@ public class NshooterBit {
         int n = sc.nextInt();
         int result = nshooters(n);
         System.out.println("Number of shooters : " + result);
+        Integer i =1;
     }
 }
