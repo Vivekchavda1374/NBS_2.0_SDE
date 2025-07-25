@@ -5,7 +5,7 @@ public class QueueImplementUsingArrays {
     public QueueImplementUsingArrays(int size) {
         queue = new int[size];
         capacity = size;
-        front = 0;
+        front = -1;
         rear = -1;
     }
 
@@ -38,6 +38,6 @@ public class QueueImplementUsingArrays {
     }
 
     public int size() {
-        return rear - front + 1;
+        return rear - front ;
     }
 }
