@@ -25,7 +25,7 @@ public class BinominialCoEfficient {
     }
 
     public static void main(String[] args) {
-        int n = 5, k = 2;
+        int n = 10, k = 2;
         System.out.println(binomialCoefficient(n, k));
         System.out.println(binomialCoefficientMemo(n, k));
     }
