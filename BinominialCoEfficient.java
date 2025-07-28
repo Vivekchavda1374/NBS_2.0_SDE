@@ -1,32 +1,26 @@
-import java.util.Arrays;
-
-public class BinominialCoEfficient {
-    public static int binomialCoefficient(int n, int k) {
-        if (k > n) return 0;
-        if (k == 0 || k == n) return 1;
-        return binomialCoefficient(n - 1, k - 1) + binomialCoefficient(n - 1, k);
-    }
-
-    public static int binomialCoefficientMemo(int n, int k) {
-        int[][] memo = new int[n + 1][k + 1];
-        for (int[] row : memo) {
-            Arrays.fill(row, -1);
-        }
-        return binomialCoefficientMemoHelper(n, k, memo);
-    }
-
-    private static int binomialCoefficientMemoHelper(int n, int k, int[][] memo) {
-        if (k > n) return 0;
-        if (k == 0 || k == n) return 1;
-        if (memo[n][k] != -1) return memo[n][k];
-
-        memo[n][k] = binomialCoefficientMemoHelper(n - 1, k - 1, memo) + binomialCoefficientMemoHelper(n - 1, k, memo);
-        return memo[n][k];
-    }
-
+import java.util.Scanner;
+class BinominialCoEfficient {
     public static void main(String[] args) {
-        int n = 10, k = 2;
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int k = sc.nextInt();
         System.out.println(binomialCoefficient(n, k));
-        System.out.println(binomialCoefficientMemo(n, k));
+    }
+
+    public static int binomialCoefficient(int n, int k) {
+        int[][] C = new int[n + 1][k + 1];
+
+        for (int i = 0; i <= n; i++) {
+            for (int j = 0; j <= Math.min(i, k); j++) {
+                if (j == 0 || j == i) {
+                    C[i][j] = 1;
+                } else {
+                    C[i][j] = C[i - 1][j - 1] + C[i - 1][j];
+                }
+                System.out.print(C[i][j] + " ");
+            }
+            System.out.println();
+        }
+        return C[n][k];
     }
 }
